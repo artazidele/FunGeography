@@ -14,6 +14,10 @@
 		C29E6583262B31FF00AF630C /* FunGeography.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C29E6581262B31FF00AF630C /* FunGeography.xcdatamodeld */; };
 		C29E6585262B320000AF630C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C29E6584262B320000AF630C /* Assets.xcassets */; };
 		C29E6588262B320000AF630C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29E6586262B320000AF630C /* LaunchScreen.storyboard */; };
+		C29E6592262B338400AF630C /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E6591262B338400AF630C /* ImageController.swift */; };
+		C29E6595262B33AA00AF630C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E6594262B33AA00AF630C /* NetworkController.swift */; };
+		C29E659B262B3AFB00AF630C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E659A262B3AFB00AF630C /* Card.swift */; };
+		C29E659E262B40BE00AF630C /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E659D262B40BE00AF630C /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		C29E6584262B320000AF630C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C29E6587262B320000AF630C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C29E6589262B320000AF630C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C29E6591262B338400AF630C /* ImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
+		C29E6594262B33AA00AF630C /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		C29E659A262B3AFB00AF630C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C29E659D262B40BE00AF630C /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +69,11 @@
 				C29E6578262B31FF00AF630C /* AppDelegate.swift */,
 				C29E657A262B31FF00AF630C /* SceneDelegate.swift */,
 				C29E657C262B31FF00AF630C /* ViewController.swift */,
+				C29E659D262B40BE00AF630C /* CardCollectionViewCell.swift */,
 				C29E657E262B31FF00AF630C /* Main.storyboard */,
+				C29E659A262B3AFB00AF630C /* Card.swift */,
+				C29E6591262B338400AF630C /* ImageController.swift */,
+				C29E6594262B33AA00AF630C /* NetworkController.swift */,
 				C29E6584262B320000AF630C /* Assets.xcassets */,
 				C29E6586262B320000AF630C /* LaunchScreen.storyboard */,
 				C29E6589262B320000AF630C /* Info.plist */,
@@ -140,10 +152,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29E6592262B338400AF630C /* ImageController.swift in Sources */,
 				C29E6583262B31FF00AF630C /* FunGeography.xcdatamodeld in Sources */,
+				C29E6595262B33AA00AF630C /* NetworkController.swift in Sources */,
 				C29E657D262B31FF00AF630C /* ViewController.swift in Sources */,
 				C29E6579262B31FF00AF630C /* AppDelegate.swift in Sources */,
 				C29E657B262B31FF00AF630C /* SceneDelegate.swift in Sources */,
+				C29E659E262B40BE00AF630C /* CardCollectionViewCell.swift in Sources */,
+				C29E659B262B3AFB00AF630C /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
