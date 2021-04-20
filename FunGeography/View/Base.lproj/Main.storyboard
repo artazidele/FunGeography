@@ -75,9 +75,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Rxk-Ht-bQe"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -147,15 +144,15 @@
             <objects>
                 <viewController storyboardIdentifier="CardGameView" id="BYZ-38-t0r" customClass="ViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-Yx-iJm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.81006147482763668" green="0.96045174870466321" blue="0.9424916125381313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5d3-Pw-7JC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lar-o8-fjm">
                                     <size key="itemSize" width="120" height="90"/>
@@ -176,11 +173,12 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="90"/>
                                                     <color key="backgroundColor" red="0.43456525260000001" green="0.063025278229999995" blue="0.22047694779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text view" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e6Z-Bw-tYp">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-tj-f9b">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="90"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dmo-rn-Moz">
@@ -188,15 +186,15 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="6xw-tj-f9b" firstAttribute="leading" secondItem="9On-oN-mlO" secondAttribute="leading" id="Mc7-qT-mDb"/>
+                                                <constraint firstItem="6xw-tj-f9b" firstAttribute="top" secondItem="9On-oN-mlO" secondAttribute="top" id="PbC-Bh-dVo"/>
                                                 <constraint firstItem="02Q-0i-IDn" firstAttribute="top" secondItem="9On-oN-mlO" secondAttribute="top" id="RYT-TS-1gi"/>
                                                 <constraint firstAttribute="trailing" secondItem="02Q-0i-IDn" secondAttribute="trailing" id="V8m-BQ-Vo7"/>
                                                 <constraint firstAttribute="bottom" secondItem="Dmo-rn-Moz" secondAttribute="bottom" id="XFe-vy-vbx"/>
-                                                <constraint firstAttribute="bottom" secondItem="e6Z-Bw-tYp" secondAttribute="bottom" id="fSS-Eg-9nz"/>
-                                                <constraint firstItem="e6Z-Bw-tYp" firstAttribute="leading" secondItem="9On-oN-mlO" secondAttribute="leading" id="gPG-yQ-TtH"/>
-                                                <constraint firstAttribute="trailing" secondItem="e6Z-Bw-tYp" secondAttribute="trailing" id="hkt-06-gds"/>
+                                                <constraint firstAttribute="bottom" secondItem="6xw-tj-f9b" secondAttribute="bottom" id="Yop-M5-7v4"/>
                                                 <constraint firstAttribute="bottom" secondItem="02Q-0i-IDn" secondAttribute="bottom" id="jjx-Wj-18I"/>
-                                                <constraint firstItem="e6Z-Bw-tYp" firstAttribute="top" secondItem="9On-oN-mlO" secondAttribute="top" id="lSd-Yt-hUf"/>
                                                 <constraint firstItem="02Q-0i-IDn" firstAttribute="leading" secondItem="9On-oN-mlO" secondAttribute="leading" id="nyI-ge-j0f"/>
+                                                <constraint firstAttribute="trailing" secondItem="6xw-tj-f9b" secondAttribute="trailing" id="pa6-a3-gMR"/>
                                                 <constraint firstAttribute="trailing" secondItem="Dmo-rn-Moz" secondAttribute="trailing" id="sa4-nJ-IdH"/>
                                                 <constraint firstItem="Dmo-rn-Moz" firstAttribute="leading" secondItem="9On-oN-mlO" secondAttribute="leading" id="wSs-Ug-8sC"/>
                                                 <constraint firstItem="Dmo-rn-Moz" firstAttribute="top" secondItem="9On-oN-mlO" secondAttribute="top" id="xca-T3-iTo"/>
@@ -205,7 +203,7 @@
                                         <connections>
                                             <outlet property="backImageView" destination="02Q-0i-IDn" id="X9v-Ll-EBi"/>
                                             <outlet property="frontImageView" destination="Dmo-rn-Moz" id="1m4-ms-uRq"/>
-                                            <outlet property="textView" destination="e6Z-Bw-tYp" id="4A0-Jw-5v5"/>
+                                            <outlet property="textView" destination="6xw-tj-f9b" id="bUt-XE-8Kk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -234,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="-76"/>
+            <point key="canvasLocation" x="2134.7826086956525" y="-76.339285714285708"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v3j-Wi-GYH">

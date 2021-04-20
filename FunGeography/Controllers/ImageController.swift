@@ -13,7 +13,7 @@ class ImageController {
         guard let imageUrl = URL(string: url) else {
             fatalError("Could not create url this String \(url)")
         }
-        print("Fetching image")
+        
         
         NetworkController.performRequest(for: imageUrl, httpMethod: .get) { (data, err) in
             guard let data = data, let image = UIImage(data: data) else {

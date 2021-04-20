@@ -40,13 +40,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                    
                     let game = try JSONDecoder().decode(Game.self, from: data)
                     countryList = game.response
-                    for i in 0..<countryList.count {
-                        print(countryList[i].region)
-                    }
+                    
                     
                     var generatedNumbersArray = [Int]()
                     while generatedNumbersArray.count < 9 {
-                        print("IZSAUC \(generatedNumbersArray.count)")
                         let randomNumber = arc4random_uniform(UInt32(countryList.count))
                         if generatedNumbersArray.contains(Int(randomNumber)) == false {
                             generatedNumbersArray.append(Int(randomNumber))
@@ -70,10 +67,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         self.someCountryList[i] = self.someCountryList[randomNumber]
                         self.someCountryList[randomNumber] = temporary
                     }
-                
-                    for i in 0..<18 {
-                        print("KARTS \(self.someCountryList[i].country ?? "")")
-                    }
                     print("SKAITS SKAITS \(self.someCountryList.count)")
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
@@ -94,7 +87,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("izsauc12345!!!!!!!!")
         return someCountryList.count
         
     }
@@ -103,7 +95,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CardCollectionViewCell
         let card = someCountryList[indexPath.row]
         cell.setCard(card)
-        print("izsauc!!!!!!!!")
         return cell
     }
     
@@ -111,11 +102,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
         let card = someCountryList[indexPath.row]
         print(card.country!)
-        if card.isFlipped == true && card.isMatched == false {
-           cell.flipBack()
+        if card.isMatched == true {
+            return
+        }else if card.isFlipped == true && card.isMatched == false {
+            cell.flipBack(card)
             card.isFlipped = false
         } else {
-            cell.flip()
+            cell.flip(card)
             card.isFlipped = true
             if firstFlippedCardIndex == nil {
                 firstFlippedCardIndex = indexPath
@@ -123,7 +116,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 checkForMatches(indexPath)
             }
         }
-        print("izsauc!!!!!!!!")
     }
     
     func checkForMatches(_ secondFlippedCardIndex: IndexPath) {
@@ -140,8 +132,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else {
             cardOne.isFlipped = false
             cardTwo.isFlipped = false
-            cardOneCell?.flipBack()
-            cardTwoCell?.flipBack()
+            cardOneCell?.flipBack(cardOne)
+            cardTwoCell?.flipBack(cardTwo)
         }
         if cardOneCell == nil {
             collectionView.reloadItems(at: [firstFlippedCardIndex!])
