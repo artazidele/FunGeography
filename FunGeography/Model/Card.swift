@@ -18,10 +18,12 @@ class Card {
 
 struct Country: Decodable {
     let name: String
+    let region: String
     var imageUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case name = "Name"
+        case region = "Region"
         case imageUrl = "FlagPng"
     }
     

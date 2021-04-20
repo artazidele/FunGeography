@@ -11,6 +11,7 @@ import Foundation
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
    
+    var region = ""
     var cardArray = [Card]()
     var firstFlippedCardIndex: IndexPath?
     
@@ -20,10 +21,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         getCardData()
-        print("izsauc!!!!!!!!")
         print(cardArray.count)
         collectionView.delegate = self
         collectionView.dataSource = self
+        print(region)
      }
     
   
@@ -39,19 +40,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                    
                     let game = try JSONDecoder().decode(Game.self, from: data)
                     countryList = game.response
-                    print("RESPONSE!!!!!!!")
-                    print(countryList.count)
-                    for i in 0..<250 {
-                        print(countryList[i].name)
+                    for i in 0..<countryList.count {
+                        print(countryList[i].region)
                     }
                     
-                    
-                    
                     var generatedNumbersArray = [Int]()
-                 //   var cardsArray = [Card]()
                     while generatedNumbersArray.count < 9 {
                         print("IZSAUC \(generatedNumbersArray.count)")
-                        let randomNumber = arc4random_uniform(250)
+                        let randomNumber = arc4random_uniform(UInt32(countryList.count))
                         if generatedNumbersArray.contains(Int(randomNumber)) == false {
                             generatedNumbersArray.append(Int(randomNumber))
                             let oneCard = Card()
