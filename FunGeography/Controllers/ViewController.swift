@@ -41,23 +41,37 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     let game = try JSONDecoder().decode(Game.self, from: data)
                     countryList = game.response
                     
+                    // Jaatlasa regiona valstis
+                    var regionCountries: [Country] = []
+                    if self.region == "All" {
+                        regionCountries = countryList
+                    } else {
+                        for i in 0..<countryList.count {
+                            if countryList[i].region == self.region {
+                                regionCountries.append(countryList[i])
+                            }
+                        }
+                    }
+                    
+                    print("Region \(self.region) has got \(regionCountries.count) countries.")
+                    
                     
                     var generatedNumbersArray = [Int]()
                     while generatedNumbersArray.count < 9 {
-                        let randomNumber = arc4random_uniform(UInt32(countryList.count))
+                        let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
                         if generatedNumbersArray.contains(Int(randomNumber)) == false {
                             generatedNumbersArray.append(Int(randomNumber))
                             let oneCard = Card()
-                            oneCard.imageName = "\(countryList[Int(randomNumber)].imageUrl ?? "")"
-                            oneCard.country = "\(countryList[Int(randomNumber)].name)"
+                            oneCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
+                            oneCard.country = "\(regionCountries[Int(randomNumber)].name)"
                             print(oneCard.country!)
                             self.someCountryList.append(oneCard)
                             print(randomNumber)
                             
                             let twoCard = Card()
                             twoCard.text = 1
-                            twoCard.imageName = "\(countryList[Int(randomNumber)].imageUrl ?? "")"
-                            twoCard.country = "\(countryList[Int(randomNumber)].name)"
+                            twoCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
+                            twoCard.country = "\(regionCountries[Int(randomNumber)].name)"
                             self.someCountryList.append(twoCard)
                         }
                     }
