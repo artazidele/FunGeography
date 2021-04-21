@@ -13,7 +13,7 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var time: UILabel!
     var timer: Timer?
-    var miliseconds: Float = 60000
+    var miliseconds: Float = 3000
     var region = ""
     var cardArray = [Card]()
     var usernameString = String()
@@ -22,6 +22,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var someCountryList: [Card] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
         getCardData()
         print(cardArray.count)
         collectionView.delegate = self
@@ -160,10 +162,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 break
             }
         }
+        addResult(thisUser: usernameString, thisResult: Int(miliseconds/1000))
         var title = ""
         var message = ""
         if isWon == true {
-            addResult(thisUser: usernameString, thisResult: Int(miliseconds))
+            //addResult(thisUser: usernameString, thisResult: Int(miliseconds))
             if miliseconds > 0 {
                 timer?.invalidate()
             }
@@ -180,6 +183,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     var user = [User]()
     var context: NSManagedObjectContext?
+    var resultForUser = 0
     func addResult(thisUser: String, thisResult: Int) {
         let username = thisUser
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -189,6 +193,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             user = result!
             if user.count == 1 {
                 user[0].result = Int16(Int(user[0].result) + thisResult)
+                self.resultForUser = Int(user[0].result)
+                do {
+                    try self.context?.save()
+                } catch {
+                    fatalError(error.localizedDescription)
+                }
             }
         } catch {
             fatalError(error.localizedDescription)
@@ -199,10 +209,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(alertAction)
         present(alert, animated: true) {
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            guard let vc = storyboard.instantiateViewController(identifier: "Region") as? RegionTableViewController else { return }
-             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                 self.navigationController?.pushViewController(vc, animated: true)
+         //   let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+           // guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
+          //  vc.result = self.resultForUser
+          //  vc.usernameString = self.usernameString
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                 self.navigationController?.popViewController(animated: true)
+                //navigationController?.pushViewController(vc, animated: true)
+                //navigationController?.setViewControllers(vc, animated: true)
+                //navigationController?.popToViewController(vc, animated: true)
              }
         }
     }

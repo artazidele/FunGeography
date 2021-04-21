@@ -69,10 +69,12 @@ class LogInViewController: UIViewController {
     }*/
     private func toUserView(username: String, result: Int){
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let vc = storyboard.instantiateViewController(identifier: "Region") as? RegionTableViewController else { return }
+        guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
         vc.usernameString = username
         vc.result = result
         navigationController?.pushViewController(vc, animated: true)
+        //navigationController?.setViewControllers(vc, animated: true)
+        //navigationController?.popToViewController(vc, animated: true)
         usernameTextField.text = ""
         passwordTextField.text = ""
     }

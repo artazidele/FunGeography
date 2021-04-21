@@ -97,6 +97,7 @@
 				C29E65A5262E1E8C00AF630C /* SignUpViewController.swift */,
 				C29E65A9262E1EE700AF630C /* LogInViewController.swift */,
 				C29E65B3262E9FD200AF630C /* RegionTableViewController.swift */,
+				C29E660926300EF900AF630C /* RegionViewController.swift */,
 				C29E65B7262EA1DC00AF630C /* RegionTableViewCell.swift */,
 			);
 			path = Controllers;
@@ -123,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				C29E657E262B31FF00AF630C /* Main.storyboard */,
-				C29E660926300EF900AF630C /* RegionViewController.swift */,
 				C29E6586262B320000AF630C /* LaunchScreen.storyboard */,
 			);
 			path = View;

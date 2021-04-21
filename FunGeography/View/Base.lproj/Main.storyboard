@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="1032" y="-64"/>
         </scene>
-        <!--View Controller-->
+        <!--Region View Controller-->
         <scene sceneID="rjn-7e-0Yy">
             <objects>
-                <viewController id="VD3-pk-yfm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegionView" id="VD3-pk-yfm" customClass="RegionViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kD0-HJ-HDQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SLu-It-nd3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="oneRegionCell" id="SLu-It-nd3" customClass="RegionTableViewCell" customModule="FunGeography" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SLu-It-nd3" id="h47-Ef-3o3">
@@ -136,6 +136,10 @@
                             <constraint firstItem="kIk-Bm-8WW" firstAttribute="bottom" secondItem="N39-aS-xfV" secondAttribute="bottom" id="osm-q8-2s0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="A0N-Dc-q97" id="QdT-eR-gT2"/>
+                        <outlet property="tableView" destination="N39-aS-xfV" id="jxN-uj-ldn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbX-4O-BeE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -56,8 +56,6 @@ class SignUpViewController: UIViewController {
         } catch {
             fatalError(error.localizedDescription)
         }
-   //     let userID = usersList[usersList.count].userID + 1
-        
         if password != passwordSecondField.text {
             self.warningPopUp(withTitle: "Passwords do not match!", withMessage: "You have to write one password in both fields!")
         } else if userName == "" || password == ""{
