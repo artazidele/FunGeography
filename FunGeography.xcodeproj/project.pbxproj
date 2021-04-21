@@ -22,6 +22,7 @@
 		C29E65AA262E1EE700AF630C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E65A9262E1EE700AF630C /* LogInViewController.swift */; };
 		C29E65B4262E9FD200AF630C /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E65B3262E9FD200AF630C /* RegionTableViewController.swift */; };
 		C29E65B8262EA1DC00AF630C /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E65B7262EA1DC00AF630C /* RegionTableViewCell.swift */; };
+		C29E660A26300EF900AF630C /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E660926300EF900AF630C /* RegionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C29E65A9262E1EE700AF630C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C29E65B3262E9FD200AF630C /* RegionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
 		C29E65B7262EA1DC00AF630C /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionTableViewCell.swift; path = FunGeography/Controllers/RegionTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		C29E660926300EF900AF630C /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionViewController.swift; path = FunGeography/Controllers/RegionViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				C29E657E262B31FF00AF630C /* Main.storyboard */,
+				C29E660926300EF900AF630C /* RegionViewController.swift */,
 				C29E6586262B320000AF630C /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29E6592262B338400AF630C /* ImageController.swift in Sources */,
+				C29E660A26300EF900AF630C /* RegionViewController.swift in Sources */,
 				C29E6583262B31FF00AF630C /* FunGeography.xcdatamodeld in Sources */,
 				C29E6595262B33AA00AF630C /* NetworkController.swift in Sources */,
 				C29E65B8262EA1DC00AF630C /* RegionTableViewCell.swift in Sources */,

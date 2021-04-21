@@ -8,15 +8,17 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-   
+    @IBOutlet weak var time: UILabel!
+    var timer: Timer?
+    var miliseconds: Float = 60000
     var region = ""
     var cardArray = [Card]()
+    var usernameString = String()
     var firstFlippedCardIndex: IndexPath?
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var someCountryList: [Card] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +27,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         print(region)
+        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
      }
-    
-  
+    @objc func timerEnd() {
+        miliseconds -= 1
+        let seconds = String(format: "%.2f", miliseconds/1000)
+        time.text = "Time: \(seconds)"
+        if miliseconds <= 10000 {
+            time.textColor = UIColor.red
+        }
+        if miliseconds <= 0 {
+            timer?.invalidate()
+            checkGameEnded()
+        }
+    }
     func getCardData() {
         var countryList: [Country] = []
         let url = URL(string: "http://countryapi.gear.host/v1/Country/getCountries")!
@@ -37,11 +50,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             if let data = data {
                 do {
-                   
                     let game = try JSONDecoder().decode(Game.self, from: data)
                     countryList = game.response
-                    
-                    // Jaatlasa regiona valstis
                     var regionCountries: [Country] = []
                     if self.region == "All" {
                         regionCountries = countryList
@@ -52,10 +62,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             }
                         }
                     }
-                    
-                    print("Region \(self.region) has got \(regionCountries.count) countries.")
-                    
-                    
                     var generatedNumbersArray = [Int]()
                     while generatedNumbersArray.count < 9 {
                         let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
@@ -88,30 +94,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 } catch {
                     print("failed to decode data \(error), data: \(data)")
                 }
-                
             } else {
                 print("Data is nil")
             }
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
- 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return someCountryList.count
-        
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CardCollectionViewCell
         let card = someCountryList[indexPath.row]
         cell.setCard(card)
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
         let card = someCountryList[indexPath.row]
@@ -131,7 +130,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
-    
     func checkForMatches(_ secondFlippedCardIndex: IndexPath) {
         let cardOneCell = collectionView.cellForItem(at: firstFlippedCardIndex!) as? CardCollectionViewCell
         let cardTwoCell = collectionView.cellForItem(at: secondFlippedCardIndex) as? CardCollectionViewCell
@@ -154,11 +152,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         firstFlippedCardIndex = nil
     }
-    
-    
     func checkGameEnded() {
-        /*    var isWon = true
-        for card in cardArray {
+        var isWon = true
+        for card in someCountryList {
             if card.isMatched == false {
                 isWon = false
                 break
@@ -167,7 +163,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         var title = ""
         var message = ""
         if isWon == true {
-          if miliseconds > 0 {
+            addResult(thisUser: usernameString, thisResult: Int(miliseconds))
+            if miliseconds > 0 {
                 timer?.invalidate()
             }
             title = "Congratulations!"
@@ -179,15 +176,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             title = "Game over"
             message = "You have lost"
         }
-        showAlert(title, message)*/
-        
+        showAlert(title, message)
     }
-    
+    var user = [User]()
+    var context: NSManagedObjectContext?
+    func addResult(thisUser: String, thisResult: Int) {
+        let username = thisUser
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(username)"])
+        do {
+            let result = try context?.fetch(request)
+            user = result!
+            if user.count == 1 {
+                user[0].result = Int16(Int(user[0].result) + thisResult)
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
     func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(alertAction)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true) {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            guard let vc = storyboard.instantiateViewController(identifier: "Region") as? RegionTableViewController else { return }
+             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                 self.navigationController?.pushViewController(vc, animated: true)
+             }
+        }
     }
-    
 }

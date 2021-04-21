@@ -9,28 +9,18 @@ import UIKit
 import CoreData
 
 class LogInViewController: UIViewController {
-
     var user = [User]()
     var context: NSManagedObjectContext?
-    
-     
      @IBOutlet weak var usernameTextField: UITextField!
-     
      @IBOutlet weak var passwordTextField: UITextField!
-     
-     
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
     }
-    
     @IBAction func logIn(_ sender: Any) {
         checkUser()
     }
-    
-    
-    
     private func warningPopUp(withTitle title: String?, withMessage message: String?) {
         DispatchQueue.main.async {
             let popUp = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -50,7 +40,7 @@ class LogInViewController: UIViewController {
             if user.count == 1 {
                 let requestPassword = user[0].password
                 if password == requestPassword && username != "" {
-                    toUserView(username: username)
+                    toUserView(username: username, result: Int(user[0].result))
                 } else {
                     self.warningPopUp(withTitle: "The password is not correct!", withMessage: "You have to write correct password!")
                     passwordTextField.text = ""
@@ -63,17 +53,28 @@ class LogInViewController: UIViewController {
             fatalError(error.localizedDescription)
         }
     }
-    
-    // MARK: - Navigation
-    private func toUserView(username: String){
+   /* func addResult(thisUser: String, thisResult: Int) {
+        let username = thisUser
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(username)"])
+        do {
+            let result = try context?.fetch(request)
+            user = result!
+            if user.count == 1 {
+                user[0].result = Int16(Int(user[0].result) + thisResult)
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }*/
+    private func toUserView(username: String, result: Int){
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let vc = storyboard.instantiateViewController(identifier: "Region") as? RegionTableViewController else { return }
         vc.usernameString = username
+        vc.result = result
         navigationController?.pushViewController(vc, animated: true)
         usernameTextField.text = ""
         passwordTextField.text = ""
     }
-
-
 }
 
