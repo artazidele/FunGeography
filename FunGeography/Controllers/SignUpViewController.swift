@@ -18,6 +18,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordFirstField: UITextField!
     @IBOutlet weak var passwordSecondField: UITextField!
     
+    @IBAction func logIn(_ sender: Any) {
+        toLogIn()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Sign Up"

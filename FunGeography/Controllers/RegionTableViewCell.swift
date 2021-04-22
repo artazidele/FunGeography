@@ -9,6 +9,17 @@ import UIKit
 
 class RegionTableViewCell: UITableViewCell {
 
+   
+    
+    @IBOutlet weak var regionImage: UIImageView!
+    
+    @IBOutlet weak var regionLabel: UILabel!
+    
+    func setUI(with: String) {
+        regionLabel.text = with
+        regionImage.image = UIImage(named: "\(with).png")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -15,6 +15,7 @@ class LogInViewController: UIViewController {
      @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Log In"
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
     }
@@ -53,28 +54,12 @@ class LogInViewController: UIViewController {
             fatalError(error.localizedDescription)
         }
     }
-   /* func addResult(thisUser: String, thisResult: Int) {
-        let username = thisUser
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(username)"])
-        do {
-            let result = try context?.fetch(request)
-            user = result!
-            if user.count == 1 {
-                user[0].result = Int16(Int(user[0].result) + thisResult)
-            }
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-    }*/
     private func toUserView(username: String, result: Int){
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
         vc.usernameString = username
         vc.result = result
         navigationController?.pushViewController(vc, animated: true)
-        //navigationController?.setViewControllers(vc, animated: true)
-        //navigationController?.popToViewController(vc, animated: true)
         usernameTextField.text = ""
         passwordTextField.text = ""
     }

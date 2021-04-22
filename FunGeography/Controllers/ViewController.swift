@@ -13,12 +13,17 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var time: UILabel!
     var timer: Timer?
-    var miliseconds: Float = 3000
+    var miliseconds: Float = 60000
     var region = ""
     var cardArray = [Card]()
     var usernameString = String()
     var firstFlippedCardIndex: IndexPath?
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBAction func endGame(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     var someCountryList: [Card] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,7 +167,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 break
             }
         }
-        addResult(thisUser: usernameString, thisResult: Int(miliseconds/1000))
+        addResult(thisUser: usernameString, thisResult: Int(miliseconds)/1000)
         var title = ""
         var message = ""
         if isWon == true {
@@ -209,15 +214,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(alertAction)
         present(alert, animated: true) {
-         //   let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-           // guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
-          //  vc.result = self.resultForUser
-          //  vc.usernameString = self.usernameString
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
+            vc.result = self.resultForUser
+            print(self.resultForUser)
+            vc.usernameString = self.usernameString
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                 self.navigationController?.popViewController(animated: true)
+                 //self.navigationController?.popViewController(animated: true)
                 //navigationController?.pushViewController(vc, animated: true)
-                //navigationController?.setViewControllers(vc, animated: true)
-                //navigationController?.popToViewController(vc, animated: true)
+                //self.navigationController?.setViewControllers(vc, animated: true)
+                self.navigationController?.pushViewController(vc, animated: true)
              }
         }
     }
