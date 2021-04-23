@@ -87,7 +87,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         self.someCountryList[i] = self.someCountryList[randomNumber]
                         self.someCountryList[randomNumber] = temporary
                     }
-                    print("SKAITS SKAITS \(self.someCountryList.count)")
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }

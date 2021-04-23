@@ -15,6 +15,7 @@ class RegionViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var result = Int()
     var usernameString = String()
     var regionList = ["Americas","Oceania","Asia","Europe","Africa","All"]
+    var regionListEmojies = ["Americas 🇨🇦 🇬🇩 🇺🇸 ","Oceania 🇳🇫 🇯🇵 🇫🇯","Asia 🇭🇰 🇮🇷 🇯🇴","Europe 🇸🇮 🇨🇭 🇪🇸","Africa 🇬🇳 🇸🇭 🇸🇨","All"]
     var user = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class RegionViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "oneRegionCell", for: indexPath) as! RegionTableViewCell
-        cell.setUI(with: regionList[indexPath.row])
+        cell.setUI(with: regionListEmojies[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
