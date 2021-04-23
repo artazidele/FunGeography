@@ -167,11 +167,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 break
             }
         }
-        addResult(thisUser: usernameString, thisResult: Int(miliseconds)/1000)
+        print("Miliseconds \(Int(miliseconds)/1000)")
         var title = ""
         var message = ""
         if isWon == true {
-            //addResult(thisUser: usernameString, thisResult: Int(miliseconds))
+            addResult(thisUser: usernameString, thisResult: Int(miliseconds)/1000)
             if miliseconds > 0 {
                 timer?.invalidate()
             }
@@ -197,6 +197,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let result = try context?.fetch(request)
             user = result!
             if user.count == 1 {
+                print(user[0].result)
+                print(Int(user[0].result))
                 user[0].result = Int16(Int(user[0].result) + thisResult)
                 self.resultForUser = Int(user[0].result)
                 do {
