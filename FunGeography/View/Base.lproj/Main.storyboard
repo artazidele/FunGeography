@@ -176,9 +176,10 @@
                                 <color key="textColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N39-aS-xfV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N39-aS-xfV">
                                 <rect key="frame" x="0.0" y="84" width="414" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="oneRegionCell" rowHeight="94" id="SLu-It-nd3" customClass="RegionTableViewCell" customModule="FunGeography" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="94"/>
@@ -277,51 +278,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXP-m6-Rb0" customClass="DesignButton" customModule="FunGeography" customModuleProvider="target">
-                                <rect key="frame" x="104" y="316" width="228" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
-                                <state key="normal" title="Delete Profile">
-                                    <color key="titleColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="deleteProfileTapped:" destination="5gd-DN-7mO" eventType="touchUpInside" id="PEN-Na-Vyc"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-LY-xtz">
-                                <rect key="frame" x="104" y="118" width="228" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
-                                <color key="textColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpS-gX-FsZ">
-                                <rect key="frame" x="104" y="201" width="228" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
-                                <color key="textColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="IxX-2z-mSL">
+                                <rect key="frame" x="92" y="118" width="228" height="285"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-au-Kwk">
+                                        <rect key="frame" x="0.0" y="0.0" width="228" height="158"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoI-LY-xtz">
+                                                <rect key="frame" x="0.0" y="0.0" width="228" height="75"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="Cej-iX-5MK"/>
+                                                    <constraint firstAttribute="width" constant="228" id="bcN-2w-Pt8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                                <color key="textColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpS-gX-FsZ">
+                                                <rect key="frame" x="0.0" y="83" width="228" height="75"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="YT7-YC-f7K"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="228" id="pCc-pN-cpl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                                <color key="textColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXP-m6-Rb0" customClass="DesignButton" customModule="FunGeography" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="198" width="228" height="87"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="228" id="cn9-yz-fam"/>
+                                            <constraint firstAttribute="height" constant="87" id="nV6-NC-O42"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <state key="normal" title="Delete Profile">
+                                            <color key="titleColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleteProfileTapped:" destination="5gd-DN-7mO" eventType="touchUpInside" id="PEN-Na-Vyc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jce-Vu-Kkk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IxX-2z-mSL" firstAttribute="top" secondItem="Jce-Vu-Kkk" secondAttribute="top" constant="74" id="8YM-A0-18F"/>
+                            <constraint firstItem="Jce-Vu-Kkk" firstAttribute="trailing" secondItem="IxX-2z-mSL" secondAttribute="trailing" constant="92" id="OwU-QD-EhA"/>
+                            <constraint firstItem="Jce-Vu-Kkk" firstAttribute="bottom" secondItem="IxX-2z-mSL" secondAttribute="bottom" constant="459" id="RWO-Jl-Ggi"/>
+                            <constraint firstItem="IxX-2z-mSL" firstAttribute="leading" secondItem="Jce-Vu-Kkk" secondAttribute="leading" constant="92" id="qmu-WE-Zl0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hkh-0e-hhw">
                         <barButtonItem key="leftBarButtonItem" title="To Game" id="fKE-nZ-eGY">

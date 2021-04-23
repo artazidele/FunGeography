@@ -84,7 +84,6 @@ class SignUpViewController: UIViewController {
             fatalError(error.localizedDescription)
         }
     }
-    // MARK: - Navigation
     private func toLogIn() {
         navigationController?.popToRootViewController(animated: true)
     }

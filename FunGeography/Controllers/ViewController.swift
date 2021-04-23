@@ -19,21 +19,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var usernameString = String()
     var firstFlippedCardIndex: IndexPath?
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBAction func endGame(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    
     var someCountryList: [Card] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         getCardData()
-        print(cardArray.count)
         collectionView.delegate = self
         collectionView.dataSource = self
-        print(region)
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
      }
     @objc func timerEnd() {
@@ -77,10 +73,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             let oneCard = Card()
                             oneCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
                             oneCard.country = "\(regionCountries[Int(randomNumber)].name)"
-                            print(oneCard.country!)
                             self.someCountryList.append(oneCard)
-                            print(randomNumber)
-                            
                             let twoCard = Card()
                             twoCard.text = 1
                             twoCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
@@ -167,7 +160,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 break
             }
         }
-        print("Miliseconds \(Int(miliseconds)/1000)")
         var title = ""
         var message = ""
         if isWon == true {
@@ -197,8 +189,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let result = try context?.fetch(request)
             user = result!
             if user.count == 1 {
-                print(user[0].result)
-                print(Int(user[0].result))
                 user[0].result = Int16(Int(user[0].result) + thisResult)
                 self.resultForUser = Int(user[0].result)
                 do {
@@ -219,12 +209,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
             vc.result = self.resultForUser
-            print(self.resultForUser)
             vc.usernameString = self.usernameString
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                 //self.navigationController?.popViewController(animated: true)
-                //navigationController?.pushViewController(vc, animated: true)
-                //self.navigationController?.setViewControllers(vc, animated: true)
                 self.navigationController?.pushViewController(vc, animated: true)
              }
         }

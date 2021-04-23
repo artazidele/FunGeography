@@ -8,16 +8,10 @@
 import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
-    
-    
-    
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var frontImageView: UIImageView!
-    
     @IBOutlet weak var textView: UITextView!
-    
     var card: Card?
-   
     func setCard(_ card: Card){
         self.card = card
         if card.isMatched == true {
@@ -46,8 +40,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         } else if card.isFlipped == true && card.text == 1{
             UIView.transition(from: backImageView, to: textView, duration: 0.5, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
         }
-        
-        
     }
     func flip(_ card: Card) {
         self.card = card
@@ -56,9 +48,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         } else {
             UIView.transition(from: backImageView, to: textView, duration: 0.5, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
         }
-       
     }
-    
     func flipBack(_ card: Card) {
         self.card = card
         if card.text == 0 {
@@ -71,14 +61,11 @@ class CardCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
     func remove() {
         backImageView.alpha = 0
         UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseOut, animations: {
             self.frontImageView.alpha = 0
             self.textView.alpha = 0
         }, completion: nil)
-        
     }
-    
 }

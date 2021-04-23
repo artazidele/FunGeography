@@ -35,7 +35,7 @@ class RegionViewController: UIViewController, UITableViewDelegate, UITableViewDa
             fatalError(error.localizedDescription)
         }
         
-        
+        tableView.tableFooterView = UIView()
         
         
     }
