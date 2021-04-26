@@ -14,10 +14,14 @@ class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     
-    func setUI(with: User, place: Int) {
+    func setUI(with: User, place: Int, result: Int) {
         placeLabel.text = String(place)
         usernameLabel.text = with.username
         pointsLabel.text = String(with.result)
+        if (result == place) {
+            contentView.backgroundColor = .lightGray
+        }
+        
     }
     
     override func awakeFromNib() {

@@ -100,11 +100,28 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return user.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! ResultTableViewCell
-        cell.setUI(with: user[indexPath.row], place: indexPath.row+1)
-        if (self.result == indexPath.row + 1) {
-            //cell.
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        do {
+            let sortDescriptor = NSSortDescriptor(key: "result", ascending: false,
+                                                  selector: #selector(NSString.localizedStandardCompare))
+            request.sortDescriptors = [sortDescriptor]
+            let result = try context?.fetch(request)
+            user = result!
+        } catch {
+            fatalError(error.localizedDescription)
         }
+        var place = 0
+        var currentUser = 1
+        for user in user {
+            if (user.username == self.usernameString){
+                place = currentUser
+                break
+            }
+            currentUser += 1
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! ResultTableViewCell
+        cell.setUI(with: user[indexPath.row], place: indexPath.row+1, result: place)
+        
         return cell
     }
     
