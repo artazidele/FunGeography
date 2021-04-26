@@ -21,6 +21,16 @@ class ProfileViewController: UIViewController {
     @IBAction func deleteProfileTapped(_ sender: Any) {
         deleteProfile()
     }
+    
+    @IBAction func toAllResults(_ sender: Any) {
+        seeAllResults()
+    }
+    private func seeAllResults(){
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let vc = storyboard.instantiateViewController(identifier: "ResultView") as? ResultViewController else { return }
+        vc.usernameString = self.usernameString
+        navigationController?.pushViewController(vc, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"

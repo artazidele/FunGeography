@@ -272,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="IxX-2z-mSL">
-                                <rect key="frame" x="92" y="118" width="228" height="285"/>
+                                <rect key="frame" x="93" y="118" width="228" height="285"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-au-Kwk">
                                         <rect key="frame" x="0.0" y="0.0" width="228" height="158"/>
@@ -332,14 +332,42 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5r-3I-2ZF" customClass="DesignButton" customModule="FunGeography" customModuleProvider="target">
+                                <rect key="frame" x="93" y="454" width="228" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="AE4-kQ-Dbo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="228" id="o71-qe-VBO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <state key="normal" title="All Results">
+                                    <color key="titleColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="toAllResults:" destination="5gd-DN-7mO" eventType="touchUpInside" id="9GG-uU-79O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jce-Vu-Kkk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IxX-2z-mSL" firstAttribute="top" secondItem="Jce-Vu-Kkk" secondAttribute="top" constant="74" id="8YM-A0-18F"/>
-                            <constraint firstItem="Jce-Vu-Kkk" firstAttribute="trailing" secondItem="IxX-2z-mSL" secondAttribute="trailing" constant="92" id="OwU-QD-EhA"/>
-                            <constraint firstItem="Jce-Vu-Kkk" firstAttribute="bottom" secondItem="IxX-2z-mSL" secondAttribute="bottom" constant="459" id="RWO-Jl-Ggi"/>
-                            <constraint firstItem="IxX-2z-mSL" firstAttribute="leading" secondItem="Jce-Vu-Kkk" secondAttribute="leading" constant="92" id="qmu-WE-Zl0"/>
+                            <constraint firstItem="IxX-2z-mSL" firstAttribute="leading" secondItem="Jce-Vu-Kkk" secondAttribute="leading" constant="93" id="9QF-7l-yMK"/>
+                            <constraint firstItem="IxX-2z-mSL" firstAttribute="top" secondItem="Jce-Vu-Kkk" secondAttribute="top" constant="74" id="BpT-Vv-xbu"/>
+                            <constraint firstItem="Jce-Vu-Kkk" firstAttribute="trailing" secondItem="IxX-2z-mSL" secondAttribute="trailing" constant="93" id="Cqf-WZ-6L6"/>
+                            <constraint firstItem="Jce-Vu-Kkk" firstAttribute="trailing" secondItem="A5r-3I-2ZF" secondAttribute="trailing" constant="93" id="aI7-uc-xLU"/>
+                            <constraint firstItem="Jce-Vu-Kkk" firstAttribute="bottom" secondItem="A5r-3I-2ZF" secondAttribute="bottom" constant="321" id="jIY-7X-2R4"/>
+                            <constraint firstItem="A5r-3I-2ZF" firstAttribute="leading" secondItem="Jce-Vu-Kkk" secondAttribute="leading" constant="93" id="oTG-b9-seh"/>
+                            <constraint firstItem="A5r-3I-2ZF" firstAttribute="top" secondItem="IxX-2z-mSL" secondAttribute="bottom" constant="51" id="wdl-dR-IFw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hkh-0e-hhw">
@@ -524,12 +552,122 @@
             </objects>
             <point key="canvasLocation" x="-13.043478260869566" y="-744.64285714285711"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="KsM-DH-H95">
+            <objects>
+                <viewController storyboardIdentifier="ResultView" id="qNg-1X-1lR" customClass="ResultViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Le-Fz-FeD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzm-R2-c2g">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zqu-Gt-mBc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mhr-ua-EXX">
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" rowHeight="75" id="ECe-Nl-DWM" customClass="ResultTableViewCell" customModule="FunGeography" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECe-Nl-DWM" id="szg-PX-Eg1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fsK-46-zGD">
+                                                    <rect key="frame" x="9" y="15" width="384" height="45"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHv-Vu-e4X">
+                                                            <rect key="frame" x="0.0" y="0.0" width="47" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="07M-8k-uHs"/>
+                                                                <constraint firstAttribute="height" constant="45" id="b83-Yu-pPU"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBC-Cl-t6O">
+                                                            <rect key="frame" x="72" y="0.0" width="204" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="204" id="PYH-Yw-KrO"/>
+                                                                <constraint firstAttribute="height" constant="45" id="maa-lj-Ok9"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jz-I9-wnt">
+                                                            <rect key="frame" x="301" y="0.0" width="83" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="0K8-FU-9NH"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="83" id="LUT-WF-TSr"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fsK-46-zGD" firstAttribute="leading" secondItem="szg-PX-Eg1" secondAttribute="leading" constant="9" id="Gbn-nW-jri"/>
+                                                <constraint firstAttribute="bottom" secondItem="fsK-46-zGD" secondAttribute="bottom" constant="15" id="Oin-h4-zX2"/>
+                                                <constraint firstItem="fsK-46-zGD" firstAttribute="top" secondItem="szg-PX-Eg1" secondAttribute="top" constant="15" id="dCs-vr-NP0"/>
+                                                <constraint firstAttribute="trailing" secondItem="fsK-46-zGD" secondAttribute="trailing" constant="21" id="gFx-ec-tW6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="placeLabel" destination="wHv-Vu-e4X" id="Gg7-Om-rRE"/>
+                                            <outlet property="pointsLabel" destination="5jz-I9-wnt" id="dD9-5T-GIJ"/>
+                                            <outlet property="usernameLabel" destination="GBC-Cl-t6O" id="S5S-zb-Sth"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rb2-7R-eLs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tzm-R2-c2g" firstAttribute="leading" secondItem="Rb2-7R-eLs" secondAttribute="leading" id="1Yf-PN-LWu"/>
+                            <constraint firstItem="tzm-R2-c2g" firstAttribute="trailing" secondItem="Rb2-7R-eLs" secondAttribute="trailing" id="8ic-R9-g6A"/>
+                            <constraint firstItem="Mhr-ua-EXX" firstAttribute="leading" secondItem="Rb2-7R-eLs" secondAttribute="leading" id="C4t-ug-Emy"/>
+                            <constraint firstItem="Rb2-7R-eLs" firstAttribute="trailing" secondItem="Mhr-ua-EXX" secondAttribute="trailing" id="M64-f4-iq9"/>
+                            <constraint firstItem="tzm-R2-c2g" firstAttribute="top" secondItem="Rb2-7R-eLs" secondAttribute="top" id="PMo-HM-wcc"/>
+                            <constraint firstItem="Mhr-ua-EXX" firstAttribute="top" secondItem="tzm-R2-c2g" secondAttribute="bottom" id="qTA-fm-Zqi"/>
+                            <constraint firstItem="Mhr-ua-EXX" firstAttribute="bottom" secondItem="Rb2-7R-eLs" secondAttribute="bottom" id="zNY-eh-fVL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0eR-a6-FCY">
+                        <barButtonItem key="leftBarButtonItem" title="Back to Profile" id="B1e-Yf-b0J">
+                            <color key="tintColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="backToProfile:" destination="qNg-1X-1lR" id="ZGs-pj-dzv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Mhr-ua-EXX" id="HyI-6d-33w"/>
+                        <outlet property="usernameLabel" destination="tzm-R2-c2g" id="e9R-ZA-OUM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3i-ng-y77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2088.4057971014495" y="641.51785714285711"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="CardGameView" id="BYZ-38-t0r" customClass="ViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-Yx-iJm">
@@ -561,7 +699,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="guZ-yM-aqr" customClass="CardCollectionViewCell" customModule="FunGeography" customModuleProvider="target">
-                                                <rect key="frame" x="6" y="0.0" width="100" height="80"/>
+                                                <rect key="frame" x="6" y="6" width="100" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9On-oN-mlO">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
@@ -646,7 +784,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2134.7826086956525" y="-76.339285714285708"/>
+            <point key="canvasLocation" x="2126" y="-147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v3j-Wi-GYH">
@@ -673,6 +811,9 @@
         </designable>
         <designable name="6gY-mB-OAC">
             <size key="intrinsicContentSize" width="94" height="34"/>
+        </designable>
+        <designable name="A5r-3I-2ZF">
+            <size key="intrinsicContentSize" width="89" height="34"/>
         </designable>
         <designable name="IXP-m6-Rb0">
             <size key="intrinsicContentSize" width="103" height="34"/>
