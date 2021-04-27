@@ -30,12 +30,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         getCardData()
         collectionView.delegate = self
         collectionView.dataSource = self
-        //timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
-        
      }
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
     }
+    
     @objc func timerEnd() {
         miliseconds -= 1
         let seconds = String(format: "%.2f", miliseconds/1000)
