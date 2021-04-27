@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rhH-dG-K7C">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,25 +14,24 @@
             <objects>
                 <viewController storyboardIdentifier="LogInView" id="GfD-Tw-Luf" customClass="LogInViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jQD-fa-ZTV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" id="ooR-zp-pCK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" translatesAutoresizingMaskIntoConstraints="NO" id="w8d-OY-1Ap">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aeN-aK-q9h">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="0.45425286091549294" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Bl-0h-67m">
-                                <rect key="frame" x="51.666666666666657" y="144" width="311" height="448"/>
+                                <rect key="frame" x="51.5" y="224" width="311" height="448"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="sdR-bQ-Rdl">
                                         <rect key="frame" x="8" y="8" width="295" height="432"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun Geography" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKb-Xn-gEw">
-                                                <rect key="frame" x="57.666666666666671" y="10" width="179.33333333333331" height="40"/>
+                                                <rect key="frame" x="58" y="10" width="179.5" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="RDN-5b-ZMS"/>
                                                 </constraints>
@@ -116,7 +115,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fT-wo-D1M" customClass="DesignButton" customModule="FunGeography" customModuleProvider="target">
-                                                <rect key="frame" x="56.333333333333343" y="257" width="182" height="61"/>
+                                                <rect key="frame" x="56.5" y="257" width="182" height="61"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="182" id="VDs-wH-5mU"/>
                                                     <constraint firstAttribute="height" constant="61" id="z6x-Im-ksm"/>
@@ -141,7 +140,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdn-uc-BVI" customClass="DesignButton" customModule="FunGeography" customModuleProvider="target">
-                                                <rect key="frame" x="70.333333333333343" y="369" width="154" height="53"/>
+                                                <rect key="frame" x="70.5" y="369" width="154" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="4QF-KY-xie"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="qWr-0l-SQa"/>
@@ -178,12 +177,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aeN-aK-q9h" firstAttribute="bottom" secondItem="NLs-xA-buD" secondAttribute="bottom" id="4Jv-Pv-HUC"/>
+                            <constraint firstItem="NLs-xA-buD" firstAttribute="bottom" secondItem="w8d-OY-1Ap" secondAttribute="bottom" id="7uc-sb-pn8"/>
                             <constraint firstItem="7Bl-0h-67m" firstAttribute="centerX" secondItem="NLs-xA-buD" secondAttribute="centerX" id="8zD-IC-g9b"/>
-                            <constraint firstItem="aeN-aK-q9h" firstAttribute="trailing" secondItem="ooR-zp-pCK" secondAttribute="trailing" id="9dF-Yk-exh"/>
                             <constraint firstItem="7Bl-0h-67m" firstAttribute="centerY" secondItem="jQD-fa-ZTV" secondAttribute="centerY" id="JoZ-fB-dNA"/>
+                            <constraint firstItem="aeN-aK-q9h" firstAttribute="trailing" secondItem="NLs-xA-buD" secondAttribute="trailing" id="Qdo-Pr-gL1"/>
+                            <constraint firstItem="w8d-OY-1Ap" firstAttribute="leading" secondItem="NLs-xA-buD" secondAttribute="leading" id="aLJ-LO-XkB"/>
                             <constraint firstItem="aeN-aK-q9h" firstAttribute="leading" secondItem="NLs-xA-buD" secondAttribute="leading" id="b8U-i1-clw"/>
                             <constraint firstItem="aeN-aK-q9h" firstAttribute="top" secondItem="NLs-xA-buD" secondAttribute="top" id="bCm-vq-9uG"/>
-                            <constraint firstItem="aeN-aK-q9h" firstAttribute="leading" secondItem="NLs-xA-buD" secondAttribute="leading" id="rNj-68-KvR"/>
+                            <constraint firstItem="w8d-OY-1Ap" firstAttribute="top" secondItem="NLs-xA-buD" secondAttribute="top" id="gf6-Pq-9kU"/>
+                            <constraint firstItem="NLs-xA-buD" firstAttribute="trailing" secondItem="w8d-OY-1Ap" secondAttribute="trailing" id="m4n-PG-wiF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gS7-4n-wro"/>
@@ -201,11 +203,11 @@
             <objects>
                 <viewController storyboardIdentifier="RegionView" id="VD3-pk-yfm" customClass="RegionViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kD0-HJ-HDQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0N-Dc-q97">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -217,7 +219,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N39-aS-xfV">
-                                <rect key="frame" x="0.0" y="40" width="414" height="647"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -308,18 +310,18 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileView" id="5gd-DN-7mO" customClass="ProfileViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1XA-xi-xzf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" translatesAutoresizingMaskIntoConstraints="NO" id="Cnk-IQ-44k">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" translatesAutoresizingMaskIntoConstraints="NO" id="Cnk-IQ-44k">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bxj-ai-OqB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="0.4542528609" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h3s-LG-VV7">
-                                <rect key="frame" x="55" y="107" width="304" height="522"/>
+                                <rect key="frame" x="55" y="187" width="304" height="522"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="ddq-d0-HtN">
                                         <rect key="frame" x="8" y="8" width="288" height="506"/>
@@ -386,7 +388,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXP-m6-Rb0" customClass="DesignButton" customModule="FunGeography" customModuleProvider="target">
-                                                <rect key="frame" x="79.666666666666657" y="435" width="129" height="51"/>
+                                                <rect key="frame" x="79.5" y="435" width="129" height="51"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="129" id="KL3-0P-qGU"/>
                                                     <constraint firstAttribute="height" constant="51" id="MxU-00-thO"/>
@@ -456,25 +458,24 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpView" id="vkt-kR-bis" customClass="SignUpViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hMR-Qz-YR5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" id="teD-iE-oEi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" translatesAutoresizingMaskIntoConstraints="NO" id="teD-iE-oEi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="183-5j-nqb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="0.4542528609" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O63-lc-Dsp">
-                                <rect key="frame" x="45" y="196" width="324" height="344"/>
+                                <rect key="frame" x="45" y="276" width="324" height="344"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="2eG-Zd-jaH">
                                         <rect key="frame" x="8" y="8" width="308" height="328"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun Geography" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sV7-UN-cfP">
-                                                <rect key="frame" x="64.333333333333329" y="10" width="179.33333333333337" height="40"/>
+                                                <rect key="frame" x="64.5" y="10" width="179.5" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Pgg-5B-1p6"/>
                                                 </constraints>
@@ -626,7 +627,11 @@
                         <viewLayoutGuide key="safeArea" id="rat-3p-U9M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="teD-iE-oEi" firstAttribute="trailing" secondItem="rat-3p-U9M" secondAttribute="trailing" id="29t-4H-GXM"/>
                             <constraint firstItem="rat-3p-U9M" firstAttribute="trailing" secondItem="183-5j-nqb" secondAttribute="trailing" id="3qZ-SM-2Sl"/>
+                            <constraint firstItem="rat-3p-U9M" firstAttribute="bottom" secondItem="teD-iE-oEi" secondAttribute="bottom" id="Bww-iQ-WI9"/>
+                            <constraint firstItem="teD-iE-oEi" firstAttribute="top" secondItem="hMR-Qz-YR5" secondAttribute="top" id="HaR-KE-N58"/>
+                            <constraint firstItem="teD-iE-oEi" firstAttribute="leading" secondItem="rat-3p-U9M" secondAttribute="leading" id="Ldc-DS-pgu"/>
                             <constraint firstItem="183-5j-nqb" firstAttribute="top" secondItem="rat-3p-U9M" secondAttribute="top" id="WM2-kw-5cw"/>
                             <constraint firstItem="183-5j-nqb" firstAttribute="leading" secondItem="rat-3p-U9M" secondAttribute="leading" id="fUI-wq-Wp1"/>
                             <constraint firstItem="O63-lc-Dsp" firstAttribute="centerY" secondItem="hMR-Qz-YR5" secondAttribute="centerY" id="jJh-Is-2zl"/>
@@ -657,11 +662,11 @@
             <objects>
                 <viewController storyboardIdentifier="ResultView" id="qNg-1X-1lR" customClass="ResultViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Le-Fz-FeD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzm-R2-c2g">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zqu-Gt-mBc"/>
                                 </constraints>
@@ -670,7 +675,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mhr-ua-EXX">
-                                <rect key="frame" x="0.0" y="40" width="414" height="696"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.049243409539999998" green="0.27722231219999999" blue="0.056975549260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -767,10 +772,10 @@
             <objects>
                 <viewController storyboardIdentifier="CardGameView" id="BYZ-38-t0r" customClass="ViewController" customModule="FunGeography" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-Yx-iJm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flags" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-Yx-iJm">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -871,14 +876,10 @@
                             <constraint firstItem="1wv-Tj-dGr" firstAttribute="bottom" secondItem="7zC-zf-J0U" secondAttribute="bottom" id="AJr-39-TpK"/>
                             <constraint firstItem="9hH-jw-si1" firstAttribute="leading" secondItem="1wv-Tj-dGr" secondAttribute="leading" constant="12" id="FXw-tb-sYv"/>
                             <constraint firstItem="9hH-jw-si1" firstAttribute="top" secondItem="1wv-Tj-dGr" secondAttribute="top" id="Lvn-1l-edz"/>
-                            <constraint firstItem="dKc-Yx-iJm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MWB-xn-7Vm"/>
                             <constraint firstItem="7zC-zf-J0U" firstAttribute="top" secondItem="1wv-Tj-dGr" secondAttribute="top" id="OOM-JD-mFg"/>
                             <constraint firstItem="dKc-Yx-iJm" firstAttribute="leading" secondItem="1wv-Tj-dGr" secondAttribute="leading" id="Qmv-57-MhB"/>
                             <constraint firstItem="1wv-Tj-dGr" firstAttribute="trailing" secondItem="7zC-zf-J0U" secondAttribute="trailing" id="Rk5-Nj-fJF"/>
-                            <constraint firstItem="dKc-Yx-iJm" firstAttribute="leading" secondItem="1wv-Tj-dGr" secondAttribute="leading" id="WWr-YG-DS0"/>
-                            <constraint firstAttribute="bottom" secondItem="dKc-Yx-iJm" secondAttribute="bottom" id="aJk-Dy-bUF"/>
                             <constraint firstItem="9hH-jw-si1" firstAttribute="bottom" secondItem="1wv-Tj-dGr" secondAttribute="bottom" id="f2d-sN-d6C"/>
-                            <constraint firstItem="1wv-Tj-dGr" firstAttribute="trailing" secondItem="dKc-Yx-iJm" secondAttribute="trailing" id="hxZ-fW-eCv"/>
                             <constraint firstItem="1wv-Tj-dGr" firstAttribute="bottom" secondItem="dKc-Yx-iJm" secondAttribute="bottom" id="m17-Bb-60F"/>
                             <constraint firstItem="1wv-Tj-dGr" firstAttribute="trailing" secondItem="dKc-Yx-iJm" secondAttribute="trailing" id="yTY-AK-dPQ"/>
                         </constraints>
@@ -906,7 +907,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rhH-dG-K7C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eyh-v2-7tt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -933,7 +934,7 @@
             <size key="intrinsicContentSize" width="103" height="34"/>
         </designable>
         <designable name="Qcn-ZF-EeC">
-            <size key="intrinsicContentSize" width="90.333333333333329" height="34"/>
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
         </designable>
         <designable name="gg1-Xh-Ngf">
             <size key="intrinsicContentSize" width="66" height="36"/>
@@ -945,10 +946,10 @@
             <size key="intrinsicContentSize" width="48" height="30"/>
         </designable>
         <designable name="reQ-lt-Po9">
-            <size key="intrinsicContentSize" width="90.333333333333329" height="34"/>
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
         </designable>
         <designable name="u7C-hY-faf">
-            <size key="intrinsicContentSize" width="90.333333333333329" height="34"/>
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
         </designable>
     </designables>
     <resources>
