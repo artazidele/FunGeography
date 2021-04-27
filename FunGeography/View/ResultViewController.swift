@@ -31,6 +31,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.tableFooterView = UIView()
         self.usernameLabel.text = getPlace()
         self.result = Int(getPlace())
+        tableView.tableFooterView = UIView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
