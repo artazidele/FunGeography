@@ -22,6 +22,12 @@ class LogInViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
         checkUser()
     }
+    
+    
+    @IBAction func signUp(_ sender: Any) {
+        toSignUp()
+    }
+    
     private func warningPopUp(withTitle title: String?, withMessage message: String?) {
         DispatchQueue.main.async {
             let popUp = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -62,6 +68,14 @@ class LogInViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
         usernameTextField.text = ""
         passwordTextField.text = ""
+    }
+    private func toSignUp(){
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let vc = storyboard.instantiateViewController(identifier: "SignUpView") as? SignUpViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+        
     }
 }
 
