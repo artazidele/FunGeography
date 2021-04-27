@@ -40,6 +40,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         } else if card.isFlipped == true && card.text == 1{
             UIView.transition(from: backImageView, to: textView, duration: 0.5, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
         }
+        
     }
     func flip(_ card: Card) {
         self.card = card

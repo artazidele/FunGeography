@@ -30,8 +30,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         getCardData()
         collectionView.delegate = self
         collectionView.dataSource = self
-        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
+        //timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
+        
      }
+    override func viewDidAppear(_ animated: Bool) {
+        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
+    }
     @objc func timerEnd() {
         miliseconds -= 1
         let seconds = String(format: "%.2f", miliseconds/1000)
@@ -44,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             checkGameEnded()
         }
     }
-    func getCardData() {
+    func getCardData(){
         var countryList: [Country] = []
         let url = URL(string: "http://countryapi.gear.host/v1/Country/getCountries")!
         NetworkController.performRequest(for: url, httpMethod: .get) {(data, err) in
