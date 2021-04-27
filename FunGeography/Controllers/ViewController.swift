@@ -13,7 +13,7 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var time: UILabel!
     var timer: Timer?
-    var miliseconds: Float = 80000
+    var miliseconds: Float = 81000
     var region = ""
     var cardArray = [Card]()
     var usernameString = String()
@@ -40,9 +40,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @objc func timerEnd() {
         miliseconds -= 1
         let seconds = String(format: "%.2f", miliseconds/1000)
-        time.text = "Time: \(seconds)"
+        time.text = "Time: 80"
         if miliseconds <= 10000 {
             time.textColor = UIColor.red
+        }
+        if miliseconds <= 80000 {
+            time.text = "Time: \(seconds)"
         }
         if miliseconds <= 0 {
             timer?.invalidate()
