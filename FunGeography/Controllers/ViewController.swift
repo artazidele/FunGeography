@@ -215,7 +215,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         present(alert, animated: true) {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
-            vc.result = self.resultForUser
+      //      vc.result = self.resultForUser
             vc.usernameString = self.usernameString
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.navigationController?.pushViewController(vc, animated: true)

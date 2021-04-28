@@ -28,6 +28,7 @@
 		C29E664426316DB100AF630C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E664326316DB100AF630C /* ProfileViewController.swift */; };
 		C29E66492636C82600AF630C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E66482636C82500AF630C /* ResultViewController.swift */; };
 		C29E664C2636C84200AF630C /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E664B2636C84200AF630C /* ResultTableViewCell.swift */; };
+		C2D3DA3626396F1600FD3D29 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C29E664326316DB100AF630C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = FunGeography/Controllers/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		C29E66482636C82500AF630C /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultViewController.swift; path = FunGeography/View/ResultViewController.swift; sourceTree = SOURCE_ROOT; };
 		C29E664B2636C84200AF630C /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				C29E659A262B3AFB00AF630C /* Card.swift */,
+				C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				C29E66382631536400AF630C /* DesignButton.swift in Sources */,
 				C29E65AA262E1EE700AF630C /* LogInViewController.swift in Sources */,
 				C29E664C2636C84200AF630C /* ResultTableViewCell.swift in Sources */,
+				C2D3DA3626396F1600FD3D29 /* CoreDataModel.swift in Sources */,
 				C29E659B262B3AFB00AF630C /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,41 +6,22 @@
 //
 
 import UIKit
-import CoreData
 
 class RegionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resultLabel: UILabel!
-    var context: NSManagedObjectContext?
-    var result = Int()
+    let coreData = CoreDataModel()
     var usernameString = String()
     var regionList = ["Americas","Oceania","Asia","Europe","Africa","All"]
     var regionListEmojies = ["Americas 🇨🇦 🇬🇩 🇺🇸 ","Oceania 🇳🇫 🇯🇵 🇫🇯","Asia 🇭🇰 🇮🇷 🇯🇴","Europe 🇸🇮 🇨🇭 🇪🇸","Africa 🇬🇳 🇸🇭 🇸🇨","All"]
     var user = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        context = appDelegate.persistentContainer.viewContext
         tableView.delegate = self
         tableView.dataSource = self
-        
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(usernameString)"])
-        do {
-            let result = try context?.fetch(request)
-            user = result!
-            if user.count == 1 {
-                resultLabel.text = "    Result: \(user[0].result)"
-            }
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-        
+        resultLabel.text = "    Result: \(coreData.getResult(usernameString))"
         tableView.tableFooterView = UIView()
-        
-        
     }
-    
     @IBAction func profile(_ sender: Any) {
         toProfileView()
     }
@@ -61,7 +42,6 @@ class RegionViewController: UIViewController, UITableViewDelegate, UITableViewDa
         vc.region = regionList[indexPath.row]
         vc.usernameString = self.usernameString
         navigationController?.pushViewController(vc, animated: true)
-        //navigationController?.setViewControllers(vc, animated: true)
     }
     private func toLogInView(){
         navigationController?.popToRootViewController(animated: false)
@@ -69,19 +49,7 @@ class RegionViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private func toProfileView(){
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let vc = storyboard.instantiateViewController(identifier: "ProfileView") as? ProfileViewController else { return }
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(usernameString)"])
-        do {
-            let result = try context?.fetch(request)
-            user = result!
-            if user.count == 1 {
-                vc.result = Int(user[0].result)
-                vc.usernameString = "\(user[0].username ?? "")"
-            }
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-        
+        vc.usernameString = self.usernameString
         navigationController?.pushViewController(vc, animated: true)
     }
 }
