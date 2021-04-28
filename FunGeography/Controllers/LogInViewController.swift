@@ -39,6 +39,7 @@ class LogInViewController: UIViewController {
     private func checkUser() {
         let username = usernameTextField.text!
         let password = passwordTextField.text
+        
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(username)"])
         do {
@@ -64,7 +65,6 @@ class LogInViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let vc = storyboard.instantiateViewController(identifier: "RegionView") as? RegionViewController else { return }
         vc.usernameString = username
-  //      vc.result = result
         navigationController?.pushViewController(vc, animated: true)
         usernameTextField.text = ""
         passwordTextField.text = ""
