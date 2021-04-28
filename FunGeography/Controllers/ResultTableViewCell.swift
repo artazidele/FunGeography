@@ -8,12 +8,9 @@
 import UIKit
 
 class ResultTableViewCell: UITableViewCell {
-
-    
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
-    
     func setUI(with: User, place: Int, result: Int) {
         placeLabel.text = String(place)
         usernameLabel.text = with.username
@@ -21,18 +18,5 @@ class ResultTableViewCell: UITableViewCell {
         if (result == place) {
             contentView.backgroundColor = .lightGray
         }
-        
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

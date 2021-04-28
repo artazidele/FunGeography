@@ -13,7 +13,7 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var time: UILabel!
     var timer: Timer?
-    var miliseconds: Float = 81000
+    var miliseconds: Float = 82000
     var region = ""
     var cardArray = [Card]()
     var usernameString = String()

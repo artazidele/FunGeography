@@ -22,13 +22,13 @@
 		C29E65AA262E1EE700AF630C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E65A9262E1EE700AF630C /* LogInViewController.swift */; };
 		C29E65B8262EA1DC00AF630C /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E65B7262EA1DC00AF630C /* RegionTableViewCell.swift */; };
 		C29E660A26300EF900AF630C /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E660926300EF900AF630C /* RegionViewController.swift */; };
-		C29E66382631536400AF630C /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E66372631536400AF630C /* DesignButton.swift */; };
 		C29E663B263153A900AF630C /* DesignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E663A263153A900AF630C /* DesignTextField.swift */; };
 		C29E663E263153D500AF630C /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E663D263153D500AF630C /* BounceButton.swift */; };
 		C29E664426316DB100AF630C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E664326316DB100AF630C /* ProfileViewController.swift */; };
 		C29E66492636C82600AF630C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E66482636C82500AF630C /* ResultViewController.swift */; };
 		C29E664C2636C84200AF630C /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E664B2636C84200AF630C /* ResultTableViewCell.swift */; };
 		C2D3DA3626396F1600FD3D29 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */; };
+		C2D3DA3C26397F4600FD3D29 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3DA3B26397F4600FD3D29 /* DesignButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,13 +49,13 @@
 		C29E65A9262E1EE700AF630C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C29E65B7262EA1DC00AF630C /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionTableViewCell.swift; path = FunGeography/Controllers/RegionTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		C29E660926300EF900AF630C /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionViewController.swift; path = FunGeography/Controllers/RegionViewController.swift; sourceTree = SOURCE_ROOT; };
-		C29E66372631536400AF630C /* DesignButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = SOURCE_ROOT; };
 		C29E663A263153A900AF630C /* DesignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTextField.swift; sourceTree = "<group>"; };
 		C29E663D263153D500AF630C /* BounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
 		C29E664326316DB100AF630C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = FunGeography/Controllers/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		C29E66482636C82500AF630C /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultViewController.swift; path = FunGeography/View/ResultViewController.swift; sourceTree = SOURCE_ROOT; };
 		C29E664B2636C84200AF630C /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		C2D3DA3B26397F4600FD3D29 /* DesignButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +88,8 @@
 		C29E6577262B31FF00AF630C /* FunGeography */ = {
 			isa = PBXGroup;
 			children = (
+				C2D3DA3F26397FC900FD3D29 /* ImagesAndNetwork */,
+				C2D3DA3E26397F6E00FD3D29 /* DesignElements */,
 				C29E65A3262E1DE200AF630C /* Model */,
 				C29E65A2262E1DB000AF630C /* AppDelegate */,
 				C29E65A1262E1D8500AF630C /* Controllers */,
@@ -104,13 +106,8 @@
 			children = (
 				C29E66482636C82500AF630C /* ResultViewController.swift */,
 				C29E664B2636C84200AF630C /* ResultTableViewCell.swift */,
-				C29E66372631536400AF630C /* DesignButton.swift */,
-				C29E663A263153A900AF630C /* DesignTextField.swift */,
-				C29E663D263153D500AF630C /* BounceButton.swift */,
 				C29E657C262B31FF00AF630C /* ViewController.swift */,
 				C29E659D262B40BE00AF630C /* CardCollectionViewCell.swift */,
-				C29E6591262B338400AF630C /* ImageController.swift */,
-				C29E6594262B33AA00AF630C /* NetworkController.swift */,
 				C29E65A5262E1E8C00AF630C /* SignUpViewController.swift */,
 				C29E65A9262E1EE700AF630C /* LogInViewController.swift */,
 				C29E660926300EF900AF630C /* RegionViewController.swift */,
@@ -145,6 +142,25 @@
 				C29E6586262B320000AF630C /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C2D3DA3E26397F6E00FD3D29 /* DesignElements */ = {
+			isa = PBXGroup;
+			children = (
+				C2D3DA3B26397F4600FD3D29 /* DesignButton.swift */,
+				C29E663A263153A900AF630C /* DesignTextField.swift */,
+				C29E663D263153D500AF630C /* BounceButton.swift */,
+			);
+			path = DesignElements;
+			sourceTree = "<group>";
+		};
+		C2D3DA3F26397FC900FD3D29 /* ImagesAndNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				C29E6591262B338400AF630C /* ImageController.swift */,
+				C29E6594262B33AA00AF630C /* NetworkController.swift */,
+			);
+			path = ImagesAndNetwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,13 +241,13 @@
 				C29E663E263153D500AF630C /* BounceButton.swift in Sources */,
 				C29E664426316DB100AF630C /* ProfileViewController.swift in Sources */,
 				C29E663B263153A900AF630C /* DesignTextField.swift in Sources */,
+				C2D3DA3C26397F4600FD3D29 /* DesignButton.swift in Sources */,
 				C29E66492636C82600AF630C /* ResultViewController.swift in Sources */,
 				C29E657D262B31FF00AF630C /* ViewController.swift in Sources */,
 				C29E6579262B31FF00AF630C /* AppDelegate.swift in Sources */,
 				C29E657B262B31FF00AF630C /* SceneDelegate.swift in Sources */,
 				C29E65A6262E1E8C00AF630C /* SignUpViewController.swift in Sources */,
 				C29E659E262B40BE00AF630C /* CardCollectionViewCell.swift in Sources */,
-				C29E66382631536400AF630C /* DesignButton.swift in Sources */,
 				C29E65AA262E1EE700AF630C /* LogInViewController.swift in Sources */,
 				C29E664C2636C84200AF630C /* ResultTableViewCell.swift in Sources */,
 				C2D3DA3626396F1600FD3D29 /* CoreDataModel.swift in Sources */,
