@@ -13,7 +13,8 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var time: UILabel!
     var timer: Timer?
-    var miliseconds: Float = 82000
+    var firstIsTapped = false
+    var miliseconds: Float = 80000
     var region = ""
     var cardArray = [Card]()
     var usernameString = String()
@@ -30,22 +31,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         getCardData()
         collectionView.delegate = self
         collectionView.dataSource = self
+        time.text = "Time: 80.00"
      }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
-    }
     
     @objc func timerEnd() {
         miliseconds -= 1
         let seconds = String(format: "%.2f", miliseconds/1000)
-        time.text = "Time: 80"
+        time.text = "Time: \(seconds)"
         if miliseconds <= 10000 {
             time.textColor = UIColor.red
-        }
-        if miliseconds <= 80000 {
-            time.text = "Time: \(seconds)"
         }
         if miliseconds <= 0 {
             timer?.invalidate()
@@ -122,6 +116,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
         let card = someCountryList[indexPath.row]
         print(card.country!)
+        if firstIsTapped == false {
+            timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerEnd), userInfo: nil, repeats: true)
+            firstIsTapped = true
+        }
         if card.isMatched == true {
             return
         }else if card.isFlipped == true && card.isMatched == false {
