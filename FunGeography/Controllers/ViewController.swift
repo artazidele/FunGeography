@@ -66,7 +66,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         }
                     }
                     var generatedNumbersArray = [Int]()
-                    while generatedNumbersArray.count < 9 {
+                 //   while generatedNumbersArray.count < 9 {
+                    var index = 1
+                    while index < 10 {
                         let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
                         if generatedNumbersArray.contains(Int(randomNumber)) == false {
                             generatedNumbersArray.append(Int(randomNumber))
@@ -80,6 +82,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             twoCard.country = "\(regionCountries[Int(randomNumber)].name)"
                             self.someCountryList.append(twoCard)
                         }
+                        index += 1
                     }
                     for i in 0..<self.someCountryList.count {
                         let randomNumber = Int(arc4random_uniform(UInt32(generatedNumbersArray.count)))
