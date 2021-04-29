@@ -12,7 +12,7 @@ import Foundation
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var time: UILabel!
     let coreData = CoreDataModel()
-    let game = MatchFlagsAndCountriesGame()
+    let cardGame = MatchFlagsAndCountriesGame()
     var timer: Timer?
     var firstIsTapped = false
     var miliseconds: Float = 80000
@@ -52,6 +52,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print("Getting err from url \(url.absoluteString), error: \(error.localizedDescription)")
             }
             if let data = data {
+                
                 do {
                     let game = try JSONDecoder().decode(Game.self, from: data)
                     countryList = game.response
@@ -67,7 +68,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     }
                     var generatedNumbersArray = [Int]()
                  //   while generatedNumbersArray.count < 9 {
-                    var index = 1
+                /*    var index = 1
                     while index < 10 {
                         let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
                         if generatedNumbersArray.contains(Int(randomNumber)) == false {
@@ -83,6 +84,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             self.someCountryList.append(twoCard)
                         }
                         index += 1
+                    }*/
+                    while generatedNumbersArray.count < 9 {
+                        let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
+                        if generatedNumbersArray.contains(Int(randomNumber)) == false {
+                            generatedNumbersArray.append(Int(randomNumber))
+                            let oneCard = Card()
+                            oneCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
+                            oneCard.country = "\(regionCountries[Int(randomNumber)].name)"
+                            self.someCountryList.append(oneCard)
+                            let twoCard = Card()
+                            twoCard.text = 1
+                            twoCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
+                            twoCard.country = "\(regionCountries[Int(randomNumber)].name)"
+                            self.someCountryList.append(twoCard)
+                        }
                     }
                     for i in 0..<self.someCountryList.count {
                         let randomNumber = Int(arc4random_uniform(UInt32(generatedNumbersArray.count)))
@@ -159,7 +175,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         firstFlippedCardIndex = nil
     }
     func checkGameEnded() {
-        let isWon = game.isWon(someCountryList)
+        let isWon = cardGame.isWon(someCountryList)
         var title = ""
         var message = ""
         if isWon == true {

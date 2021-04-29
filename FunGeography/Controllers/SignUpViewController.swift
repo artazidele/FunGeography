@@ -65,6 +65,7 @@ class SignUpViewController: UIViewController {
             user.setValue(userName, forKey: "username")
             user.setValue(password, forKey: "password")
             user.setValue(0, forKey: "result")
+            user.setValue(0, forKey: "bestresult")
             self.saveData()
             toLogIn()
         }

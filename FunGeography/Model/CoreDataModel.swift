@@ -23,6 +23,9 @@ class CoreDataModel {
             user = result!
             if user.count == 1 {
                 user[0].result = Int16(Int(user[0].result) + thisResult)
+                if Int(user[0].bestresult) < thisResult {
+                    user[0].bestresult = Int16(thisResult)
+                }
                 do {
                     try self.context?.save()
                 } catch {
