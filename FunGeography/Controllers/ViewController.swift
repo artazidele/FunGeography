@@ -32,7 +32,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         time.text = "Time: 80.00"
      }
-    
     @objc func timerEnd() {
         miliseconds -= 1
         let seconds = String(format: "%.2f", miliseconds/1000)
