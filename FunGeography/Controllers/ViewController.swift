@@ -8,10 +8,11 @@
 
 import UIKit
 import Foundation
-import CoreData
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var time: UILabel!
+    let coreData = CoreDataModel()
+    let game = MatchFlagsAndCountriesGame()
     var timer: Timer?
     var firstIsTapped = false
     var miliseconds: Float = 80000
@@ -26,8 +27,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var someCountryList: [Card] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        context = appDelegate.persistentContainer.viewContext
         getCardData()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -158,17 +157,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         firstFlippedCardIndex = nil
     }
     func checkGameEnded() {
-        var isWon = true
-        for card in someCountryList {
-            if card.isMatched == false {
-                isWon = false
-                break
-            }
-        }
+        let isWon = game.isWon(someCountryList)
         var title = ""
         var message = ""
         if isWon == true {
-            addResult(thisUser: usernameString, thisResult: Int(miliseconds)/1000)
+            coreData.addResult(thisUser: usernameString, thisResult: Int(miliseconds)/1000)
             if miliseconds > 0 {
                 timer?.invalidate()
             }
@@ -182,29 +175,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             message = "You have lost"
         }
         showAlert(title, message)
-    }
-    var user = [User]()
-    var context: NSManagedObjectContext?
-    var resultForUser = 0
-    func addResult(thisUser: String, thisResult: Int) {
-        let username = thisUser
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(username)"])
-        do {
-            let result = try context?.fetch(request)
-            user = result!
-            if user.count == 1 {
-                user[0].result = Int16(Int(user[0].result) + thisResult)
-                self.resultForUser = Int(user[0].result)
-                do {
-                    try self.context?.save()
-                } catch {
-                    fatalError(error.localizedDescription)
-                }
-            }
-        } catch {
-            fatalError(error.localizedDescription)
-        }
     }
     func showAlert(_ title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

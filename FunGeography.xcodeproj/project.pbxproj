@@ -29,6 +29,7 @@
 		C29E664C2636C84200AF630C /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E664B2636C84200AF630C /* ResultTableViewCell.swift */; };
 		C2D3DA3626396F1600FD3D29 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */; };
 		C2D3DA3C26397F4600FD3D29 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3DA3B26397F4600FD3D29 /* DesignButton.swift */; };
+		C2ED84B8263AD11D00DDA2F6 /* MatchFlagsAndCountriesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED84B7263AD11D00DDA2F6 /* MatchFlagsAndCountriesGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		C29E664B2636C84200AF630C /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		C2D3DA3B26397F4600FD3D29 /* DesignButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = "<group>"; };
+		C2ED84B7263AD11D00DDA2F6 /* MatchFlagsAndCountriesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchFlagsAndCountriesGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				C29E659A262B3AFB00AF630C /* Card.swift */,
 				C2D3DA3526396F1600FD3D29 /* CoreDataModel.swift */,
+				C2ED84B7263AD11D00DDA2F6 /* MatchFlagsAndCountriesGame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ED84B8263AD11D00DDA2F6 /* MatchFlagsAndCountriesGame.swift in Sources */,
 				C29E6592262B338400AF630C /* ImageController.swift in Sources */,
 				C29E660A26300EF900AF630C /* RegionViewController.swift in Sources */,
 				C29E6583262B31FF00AF630C /* FunGeography.xcdatamodeld in Sources */,

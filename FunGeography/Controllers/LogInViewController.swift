@@ -22,12 +22,9 @@ class LogInViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
         checkUser()
     }
-    
-    
     @IBAction func signUp(_ sender: Any) {
         toSignUp()
     }
-    
     private func warningPopUp(withTitle title: String?, withMessage message: String?) {
         DispatchQueue.main.async {
             let popUp = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -39,7 +36,6 @@ class LogInViewController: UIViewController {
     private func checkUser() {
         let username = usernameTextField.text!
         let password = passwordTextField.text
-        
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(username)"])
         do {

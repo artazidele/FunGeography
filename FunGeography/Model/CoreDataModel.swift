@@ -11,9 +11,28 @@ import UIKit
 
 class CoreDataModel {
     var context: NSManagedObjectContext?
-    
     var user = [User]()
-    
+    func addResult(thisUser: String, thisResult: Int) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
+        let username = thisUser
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "username == %@", argumentArray: ["\(username)"])
+        do {
+            let result = try context?.fetch(request)
+            user = result!
+            if user.count == 1 {
+                user[0].result = Int16(Int(user[0].result) + thisResult)
+                do {
+                    try self.context?.save()
+                } catch {
+                    fatalError(error.localizedDescription)
+                }
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
     func reiting() -> [User] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext

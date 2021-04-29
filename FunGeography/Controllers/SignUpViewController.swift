@@ -9,30 +9,24 @@ import UIKit
 import CoreData
 
 class SignUpViewController: UIViewController {
-
     var usersList = [User]()
     var usersListToCheck = [User]()
     var context: NSManagedObjectContext?
-    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordFirstField: UITextField!
     @IBOutlet weak var passwordSecondField: UITextField!
-    
     @IBAction func logIn(_ sender: Any) {
         toLogIn()
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Sign Up"
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
     }
-    
     @IBAction func signUp(_ sender: Any) {
         canSignUp()
     }
-    
     private func warningPopUp(withTitle title: String?, withMessage message: String?) {
         DispatchQueue.main.async {
             let popUp = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -41,7 +35,6 @@ class SignUpViewController: UIViewController {
             self.present(popUp, animated: true)
         }
     }
-    
     private func canSignUp(){
         let userName = usernameField.text!
         let password = passwordFirstField.text!
@@ -71,7 +64,6 @@ class SignUpViewController: UIViewController {
             let user = NSManagedObject(entity: entity!, insertInto: self.context)
             user.setValue(userName, forKey: "username")
             user.setValue(password, forKey: "password")
-    //        user.setValue(userID, forKey: "userID")
             user.setValue(0, forKey: "result")
             self.saveData()
             toLogIn()
