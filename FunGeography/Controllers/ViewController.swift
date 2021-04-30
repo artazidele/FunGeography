@@ -44,6 +44,45 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             checkGameEnded()
         }
     }
+    var generatedNumbersArray = [Int]()
+    var thereIsOtherCountries = true
+    func getCountryPairs(regionCountries: [Country]){
+        var randomNumber = UInt32(0)
+        if regionCountries.count > 1 {
+            randomNumber = arc4random_uniform(UInt32(regionCountries.count))
+        } else {
+            randomNumber = UInt32(1)
+        }
+        if self.generatedNumbersArray.contains(Int(randomNumber)) == false {
+            self.generatedNumbersArray.append(Int(randomNumber-1))
+            let oneCard = Card()
+            oneCard.imageName = "\(regionCountries[Int(randomNumber-1)].imageUrl ?? "")"
+            oneCard.country = "\(regionCountries[Int(randomNumber-1)].name)"
+            self.someCountryList.append(oneCard)
+            let twoCard = Card()
+            twoCard.text = 1
+            twoCard.imageName = "\(regionCountries[Int(randomNumber-1)].imageUrl ?? "")"
+            twoCard.country = "\(regionCountries[Int(randomNumber-1)].name)"
+            self.someCountryList.append(twoCard)
+            thereIsOtherCountries = false
+            for i in 0..<generatedNumbersArray.count {
+                if !self.generatedNumbersArray.contains(i) {
+                    thereIsOtherCountries = true
+                    break
+                }
+            }
+        }
+        if generatedNumbersArray.count < 9 && thereIsOtherCountries == true {
+            getCountryPairs(regionCountries: regionCountries)
+        } else {
+            for i in 0..<self.someCountryList.count {
+                let randomNumber = Int(arc4random_uniform(UInt32(generatedNumbersArray.count)))
+                let temporary = self.someCountryList[i]
+                self.someCountryList[i] = self.someCountryList[randomNumber]
+                self.someCountryList[randomNumber] = temporary
+            }
+        }
+    }
     func getCardData(){
         var countryList: [Country] = []
         let url = URL(string: "http://countryapi.gear.host/v1/Country/getCountries")!
@@ -65,60 +104,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             }
                         }
                     }
-                    var generatedNumbersArray = [Int]()
-                    
-                    
-                    
-                    //No tejienes
-                    //var someCountryList2: [Card] = []
-                    
-                    func getCountryPairs() {
-                        let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
-                        if generatedNumbersArray.contains(Int(randomNumber)) == false {
-                            generatedNumbersArray.append(Int(randomNumber))
-                            let oneCard = Card()
-                            oneCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
-                            oneCard.country = "\(regionCountries[Int(randomNumber)].name)"
-                            self.someCountryList.append(oneCard)
-                            let twoCard = Card()
-                            twoCard.text = 1
-                            twoCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
-                            twoCard.country = "\(regionCountries[Int(randomNumber)].name)"
-                            self.someCountryList.append(twoCard)
-                        }
-                        if generatedNumbersArray.count < 9 {
-                            getCountryPairs()
-                        }
-                    }
-                    if regionCountries.count >= 9 {
-                        getCountryPairs()
-                    }
-                    
-                    //Lidz sim ciklam
-                 /*   while generatedNumbersArray.count < 9 {
-                        let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
-                        if generatedNumbersArray.contains(Int(randomNumber)) == false {
-                            generatedNumbersArray.append(Int(randomNumber))
-                            let oneCard = Card()
-                            oneCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
-                            oneCard.country = "\(regionCountries[Int(randomNumber)].name)"
-                            self.someCountryList.append(oneCard)
-                            let twoCard = Card()
-                            twoCard.text = 1
-                            twoCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
-                            twoCard.country = "\(regionCountries[Int(randomNumber)].name)"
-                            self.someCountryList.append(twoCard)
-                        }
-                    }*/
-                    
-                    
-                    
-                    for i in 0..<self.someCountryList.count {
-                        let randomNumber = Int(arc4random_uniform(UInt32(generatedNumbersArray.count)))
-                        let temporary = self.someCountryList[i]
-                        self.someCountryList[i] = self.someCountryList[randomNumber]
-                        self.someCountryList[randomNumber] = temporary
-                    }
+                    self.getCountryPairs(regionCountries: regionCountries)
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
