@@ -52,7 +52,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print("Getting err from url \(url.absoluteString), error: \(error.localizedDescription)")
             }
             if let data = data {
-                
                 do {
                     let game = try JSONDecoder().decode(Game.self, from: data)
                     countryList = game.response
@@ -67,9 +66,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         }
                     }
                     var generatedNumbersArray = [Int]()
-                 //   while generatedNumbersArray.count < 9 {
-                    var index = 1
-                    while index < 10 {
+                    
+                    
+                    
+                    //No tejienes
+                    //var someCountryList2: [Card] = []
+                    
+                    func getCountryPairs() {
                         let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
                         if generatedNumbersArray.contains(Int(randomNumber)) == false {
                             generatedNumbersArray.append(Int(randomNumber))
@@ -82,10 +85,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             twoCard.imageName = "\(regionCountries[Int(randomNumber)].imageUrl ?? "")"
                             twoCard.country = "\(regionCountries[Int(randomNumber)].name)"
                             self.someCountryList.append(twoCard)
-                            index += 1
+                        }
+                        if generatedNumbersArray.count < 9 {
+                            getCountryPairs()
                         }
                     }
-                    /*    while generatedNumbersArray.count < 9 {
+                    if regionCountries.count >= 9 {
+                        getCountryPairs()
+                    }
+                    
+                    //Lidz sim ciklam
+                 /*   while generatedNumbersArray.count < 9 {
                         let randomNumber = arc4random_uniform(UInt32(regionCountries.count))
                         if generatedNumbersArray.contains(Int(randomNumber)) == false {
                             generatedNumbersArray.append(Int(randomNumber))
@@ -100,6 +110,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             self.someCountryList.append(twoCard)
                         }
                     }*/
+                    
+                    
+                    
                     for i in 0..<self.someCountryList.count {
                         let randomNumber = Int(arc4random_uniform(UInt32(generatedNumbersArray.count)))
                         let temporary = self.someCountryList[i]
@@ -109,6 +122,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
+                    
                 } catch {
                     print("failed to decode data \(error), data: \(data)")
                 }
