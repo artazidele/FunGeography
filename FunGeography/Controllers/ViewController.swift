@@ -99,7 +99,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         regionCountries = countryList
                     } else {
                         for i in 0..<countryList.count {
-                            if countryList[i].region == self.region {
+                            if countryList[i].region == self.region {//"Polar" { 
                                 regionCountries.append(countryList[i])
                             }
                         }
