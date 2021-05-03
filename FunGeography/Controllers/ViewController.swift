@@ -48,7 +48,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var thereIsOtherCountries = true
     func getCountryPairs(regionCountries: [Country]){
         var randomNumber = UInt32(0)
-        if regionCountries.count > 1 {
+        if regionCountries.count == 0 {
+            return
+        } else if regionCountries.count > 1 {
             randomNumber = arc4random_uniform(UInt32(regionCountries.count))
         } else {
             randomNumber = UInt32(1)
@@ -99,7 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         regionCountries = countryList
                     } else {
                         for i in 0..<countryList.count {
-                            if countryList[i].region == self.region {//"Polar" { 
+                            if countryList[i].region == self.region {//"Polar" { //
                                 regionCountries.append(countryList[i])
                             }
                         }
